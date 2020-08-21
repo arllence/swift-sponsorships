@@ -14,7 +14,7 @@ from email.mime.text import MIMEText
 def smtp_connection():
     # CREDS
     SITE_ADDRESS = 'znet.social@gmail.com'
-    PASSWORD = 'login.gmail'
+    PASSWORD = '*********'
     # CONNECTION
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
