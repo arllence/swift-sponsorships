@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	       
+<br>
+<section class="col-sm-12 home-pull container user_profile  global-contain header-space-fix-mobile-bg" >  
+   
+					<div class="home-signin">
+		
+						<form action="{% url 'account:contact_support' %}" method="POST">
+							{% csrf_token %}
+							<h3 class="text-left">Contact support</h3>
+						
+							<div class="col-sm-6">
+								<input id="email" type="text" name="email" class="validate form-control" required placeholder="Your phone/email">
+							</div>
+
+						<br>
+							<div class="">
+								<div class="col-sm-12">
+								
+								<textarea id="icon_prefix2" class="form-control" name="message" required placeholder="Your messaage"></textarea>
+			
+								</div>
+							</div>
+							<br>
+														
+							<button class="btn x-profile-btn" type="submit">Send</button>
+
+							<p></p>
+							<p><a href="/">Go Back</a></p>
+						</form>
+					</div>
+					<br>
+			
+</section>    	
+
+{% endblock %}

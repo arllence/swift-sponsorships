@@ -1,0 +1,43 @@
+{% extends 'structure.html' %}
+
+  {% block content %}
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+    <h5>Approved applicants:</h5>
+    <br>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">View</th>
+            <th scope="col">Sponsored?</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in approved %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ data.user.first_name }}</td>
+              <td>{{ data.user.last_name }}</td>
+              <td><a class="btn btn-link" href="{% url 'student_profile' data.user.id %}">View profile</a></td>
+              <td>
+                {% if data.sponsored == True %}
+                  <span class="text-success"><b>Yes</b></span>
+                {% elif data.sponsored == False %}
+                  <span class="text-danger"><b>No</b></span>
+                {% endif %}
+              </td>
+              <td><a class="btn btn-warning" href="{% url 'sponsor' data.user.id %}">Sponsor</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+    </main>
+
+  {% endblock %}
+   

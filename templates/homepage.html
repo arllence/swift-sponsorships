@@ -1,0 +1,32 @@
+{% extends 'structure.html' %}
+
+  {% block content %}
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Welcome {{user.first_name}}</h1>
+      {% if applied %}
+        <p class="lead">You have successfully applied for a Scholarship:</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="#">Applied successfully</a>
+          <br>
+          <br>
+          {% if status == 0 %}
+            <a class="btn btn-lg btn-warning" href="#">Pending Approval</a>
+          {% elif status == 1 %}
+            <a class="btn btn-lg btn-success" href="#">Application Approved</a>
+          {% else %}
+            <a class="btn btn-lg btn-danger" href="#">Application Rejected</a>
+          {% endif %}
+          <br><br>
+          <a class="btn btn-lg btn-info" href="{% url 'student_profile' user.id %}">View profile</a>
+        </p>
+      {% else %}
+        <p class="lead">You can apply for Scholarships below:</p>
+        <p><a class="btn btn-lg btn-success" href="{% url 'student_bio' %}">Apply for Scholaships</a></p>
+      {% endif %}
+      
+    </main>
+
+  {% endblock %}
+   
